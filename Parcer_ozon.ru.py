@@ -7,8 +7,8 @@ res = requests.get("https://www.kiabi.ru/mezhsezonnaya-rasprodazha-muzhchiny_326
 
 soup = BeautifulSoup(res.text, 'html.parser')
 for item in soup.select(".articleContent"):
-
-    ##print(item.attrs["data-price"])
+    print(item)
+    #print(item.attrs["data-price"])
     print(item.select(".linkProduct")[0].attrs["data-ref"])
     print(item.select(".lowestPrice")[0].attrs["data-price"])
 
