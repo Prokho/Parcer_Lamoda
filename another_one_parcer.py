@@ -3,11 +3,14 @@ from bs4 import BeautifulSoup
 
 
 
-res = requests.get("https://www.gloria-jeans.ru/search?q=%3Apriority%3AinStock%3Atrue%3AproductLabelType%3ASALE%3AcategoryPathAge%3AMALE%3Acategory%3Aboys-jeans")
+res = requests.get("https://www.gloria-jeans.ru/c/girls-schoolchild-footwear-no-season")
 
 soup = BeautifulSoup(res.text, 'html.parser')
-for item in soup.select(".js-product-ref-link"):
-    print(item)
-    item_price = item.select(".strike-diag js-old-price-info")
-    print(item_price)
-    #print(item.select(".lowestPrice")[0].attrs["data-price"])
+for item in soup.select(".js-name-product"):
+    print(item.text)
+
+
+for item in soup.select(".js-analytics-add-in-cart "):
+
+    #print(item.div.attrs["data-price"])
+    print(item.attrs["data-price"])
